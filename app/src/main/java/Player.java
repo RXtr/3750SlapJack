@@ -5,6 +5,7 @@
 public class Player {
     public String Name;
     private GroupOfCards Hand;
+
     public void NewHand(GroupOfCards newhand){
         Hand = newhand;
     }

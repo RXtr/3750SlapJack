@@ -64,10 +64,6 @@ public class Card {
     public Card(CardSuit _suit, CardValue _value) {
         suit = _suit;
         value = _value;
-
-        // TO DO: Is this check still needed after value is an enumerated type?
-//		if(value < 1 || value > 13)
-//			throw new RuntimeException("Card's value must be 1 to 13");
     }
 
     /**
@@ -90,22 +86,6 @@ public class Card {
      * @return formatted string
      */
     public String toString() {
-//		String result = "";
-
-        // TO DO: Update to use the enum for value.
-        // (Hint: Add a toString method to the enum to make this easy.
-        //        See CardSuit for an example.)
-//		if(value == ACE)
-//			result += value.toString();
-//		else if(value == 11)
-//			result += "jack";
-//		else if(value == 12)
-//			result += "queen";
-//		else if(value == 13)
-//			result += "king";
-//		else
-//			result += value;
-
         return value.toString() + " of " + suit.toString();
     }
 

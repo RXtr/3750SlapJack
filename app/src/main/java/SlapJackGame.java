@@ -1,3 +1,4 @@
+import java.security.acl.Group;
 import java.util.ArrayList;
 
 /**
@@ -9,7 +10,18 @@ public class SlapJackGame {
     private int Dealer;
     private int PlayerTurn;
 
-    public void Deal(){
+    public SlapJackGame(ArrayList<Player> _players){
+        Players = _players;
+        Deal();
+    }
 
+    private void Deal(){
+        ArrayList<GroupOfCards> hands;
+        GroupOfCards deck = new GroupOfCards();
+        hands = deck.NewHand(52/Players.size(), deck.getGroup(), Players.size());
+        int handCount = 0;
+        for (Player player : Players) {
+            player.NewHand(hands.get(handCount++));
+        }
     }
 }
