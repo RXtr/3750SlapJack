@@ -13,8 +13,7 @@ public class GroupOfCards {
         NewDeck();
     }
     public GroupOfCards(int length, int startIndex, ArrayList<Card> Deck){
-        cards = new ArrayList<Card>();
-        System.arraycopy(Deck, startIndex, cards, startIndex, length);
+        cards = new ArrayList<Card>(Deck.subList(startIndex,startIndex+length));
     }
     public void Shuffle(){
         Collections.shuffle(cards);
