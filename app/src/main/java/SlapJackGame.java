@@ -9,6 +9,7 @@ public class SlapJackGame {
     private ArrayList<Player> Players;
     private int Dealer;
     private int PlayerTurn;
+    private GroupOfCards pile;
 
     public SlapJackGame(ArrayList<Player> _players){
         Players = _players;

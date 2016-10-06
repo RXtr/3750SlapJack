@@ -9,4 +9,12 @@ public class Player {
     public void NewHand(GroupOfCards newhand){
         Hand = newhand;
     }
+
+    public void placeCard(GroupOfCards pile)
+    {
+        if (Hand.getGroup().size() > 0) {
+            pile.getGroup().add(Hand.getGroup().get(0));
+            Hand.getGroup().remove(0);
+        }
+    }
 }
