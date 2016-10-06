@@ -36,6 +36,18 @@ public class GroupOfCards {
         return Hands;
     }
 
+    /**
+     * The helper method to give cards.
+     * @param group The group of cards to which cards are given to.
+     */
+    public void giveCard(GroupOfCards group)
+    {
+        if (this.getGroup().size() > 0) {
+            group.getGroup().add(this.getGroup().get(0));
+            this.getGroup().remove(0);
+        }
+    }
+
     public int CardCount(){
         return cards.size();
     }

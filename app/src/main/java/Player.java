@@ -2,6 +2,8 @@
  * Created by Nick Marietti on 10/5/2016.
  */
 
+import java.util.*;
+
 public class Player {
     public String Name;
     private GroupOfCards Hand;
@@ -12,9 +14,24 @@ public class Player {
 
     public void placeCard(GroupOfCards pile)
     {
-        if (Hand.getGroup().size() > 0) {
-            pile.getGroup().add(Hand.getGroup().get(0));
-            Hand.getGroup().remove(0);
+        Hand.giveCard(pile);
+    }
+
+    /**
+     * When the player misslaps.
+     * @param players The group of players to whom a card is given to.
+     */
+    public void giveCardsMisslap(ArrayList<Player> players)
+    {
+        for (Player p : players)
+        {
+            Hand.giveCard(p.getHand());
         }
+    }
+
+
+
+    public GroupOfCards getHand() {
+        return Hand;
     }
 }
