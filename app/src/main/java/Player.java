@@ -4,17 +4,22 @@
 
 import java.util.*;
 
-public class Player {
-    public String Name;
-    private GroupOfCards Hand;
+public class Player extends GroupOfCards {
+    private String Name;
+
+    public Player(String name)
+    {
+        super();
+        Name = name;
+    }
 
     public void NewHand(GroupOfCards newhand){
-        Hand = newhand;
+        this.cards = newhand.getGroup();
     }
 
     public void placeCard(GroupOfCards pile)
     {
-        Hand.giveCard(pile);
+        this.giveCard(pile);
     }
 
     /**
@@ -25,13 +30,13 @@ public class Player {
     {
         for (Player p : players)
         {
-            Hand.giveCard(p.getHand());
+            this.giveCard(p.getHand());
         }
     }
 
 
 
     public GroupOfCards getHand() {
-        return Hand;
+        return this;
     }
 }

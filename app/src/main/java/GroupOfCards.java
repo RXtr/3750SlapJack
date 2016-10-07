@@ -7,17 +7,37 @@ import java.util.Random;
  */
 
 public class GroupOfCards {
-    private ArrayList<Card> cards;
 
+    /**
+     * The group of cards.
+     */
+    protected ArrayList<Card> cards;
+
+    /**
+     * The constructor for the group of cards.
+     */
     public GroupOfCards(){
-        NewDeck();
+        //NewDeck();
+        cards = new ArrayList<>();
     }
+
+    /*
     public GroupOfCards(int length, int startIndex, ArrayList<Card> Deck){
         cards = new ArrayList<Card>(Deck.subList(startIndex,startIndex+length));
     }
+    */
+
+    /**
+     * Shuffles the group of cards.
+     */
     public void Shuffle(){
         Collections.shuffle(cards);
     }
+
+    /**
+     * Creates a new deck.
+     */
+    /*
     public void NewDeck(){
         cards = new ArrayList<Card>();
 
@@ -28,13 +48,23 @@ public class GroupOfCards {
             }
         }
     }
+    */
 
+    /**
+     * Creates a new ahdn
+     * @param _handSize
+     * @param Deck
+     * @param playerCount
+     * @return
+     */
+    /*
     public ArrayList<GroupOfCards> NewHand(int _handSize, ArrayList<Card> Deck, int playerCount){
         ArrayList<GroupOfCards> Hands = new ArrayList<GroupOfCards>();
         for(int i = 0; i < playerCount; i++)
-            Hands.add(new GroupOfCards(_handSize, playerCount*i+_handSize, Deck));
+           // Hands.add(new GroupOfCards(_handSize, playerCount*i+_handSize, Deck));
         return Hands;
     }
+    */
 
     /**
      * The helper method to give cards.

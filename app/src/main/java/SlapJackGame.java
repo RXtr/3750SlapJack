@@ -6,50 +6,102 @@ import java.util.ArrayList;
  */
 
 public class SlapJackGame {
+
+    /**
+     * The list of players.
+     */
     private ArrayList<Player> Players;
+
     private int Dealer;
+
+    /**
+     * The number of turns.
+     */
     private int PlayerTurn;
-    private GroupOfCards pile;
+
+    /**
+     * The total number of players.
+     */
+    private int playerCount;
+
+    /**
+     * The center pile for placing cards.
+     */
+    private GroupOfCards centerPile;
+
+    /**
+     * The deck to deal cards from.
+     */
+    private Deck deck;
 
     public SlapJackGame(ArrayList<Player> _players){
         Players = _players;
+        deck = new Deck();
         Deal();
+        playerCount = 0;
+        centerPile = new GroupOfCards();
     }
 
-    public void playGame()
+    /**
+     * Default constructor for SlapJackGame
+     */
+    public SlapJackGame()
     {
-        // Create the players.
-        // Deal the cards.
-        // players place their cards.
-        // Slap the center pile.
-        // Award the cards.
+        Players = new ArrayList<>();
+        deck = new Deck();
+        Deal();
+        playerCount = 0;
+        centerPile = new GroupOfCards();
     }
 
-    private void Deal(){
-        ArrayList<GroupOfCards> hands;
-        GroupOfCards deck = new GroupOfCards();
-        hands = deck.NewHand(52/Players.size(), deck.getGroup(), Players.size());
+    /**
+     * Deal cards to all players.
+     */
+    public void Deal(){
+
+       // playerHands = deck.NewHand(52/Players.size(), deck.getGroup(), Players.size());
+
+        // Create hands for each player.
+        for (int i = 0; i < playerCount; i++)
+        {
+            for (int j = 0; j < (Deck.DECK_SIZE / playerCount); j++)
+                deck.giveCard(Players.get(i));
+        }
+        /*
         int handCount = 0;
         for (Player player : Players) {
             player.NewHand(hands.get(handCount++));
         }
+        */
     }
-
-
 
     /**
      * Transfer the center pile to whoever slapped first.
      * @param winner The player who won the slap.
      */
-    private void awardCards(Player winner)
+    public void awardCards(Player winner)
     {
-        for (Card c : pile.getGroup()) {
-            pile.giveCard(winner.getHand());
-        }
+        for (Card c : centerPile.getGroup())
+            centerPile.giveCard(winner);
     }
 
-    private boolean isAJack(Card c)
+    public boolean isAJack(Card c)
     {
         return (c.getValue().equals("JACK"));
+    }
+
+    public int getPlayerCount()
+    {
+        return playerCount;
+    }
+
+    public void setPlayerCount(int count)
+    {
+        playerCount = count;
+    }
+
+    public GroupOfCards getCenterPile()
+    {
+        return centerPile;
     }
 }
