@@ -1,4 +1,5 @@
-import java.security.acl.Group;
+package com.example.robbie.cs3750slapjack;
+
 import java.util.ArrayList;
 
 /**
@@ -38,12 +39,12 @@ public class SlapJackGame {
         Players = _players;
         deck = new Deck();
         Deal();
-        playerCount = 0;
+        playerCount = _players.size();
         centerPile = new GroupOfCards();
     }
 
     /**
-     * Default constructor for SlapJackGame
+     * Default constructor for com.example.robbie.cs3750slapjack.SlapJackGame
      */
     public SlapJackGame()
     {
@@ -69,7 +70,7 @@ public class SlapJackGame {
         }
         /*
         int handCount = 0;
-        for (Player player : Players) {
+        for (com.example.robbie.cs3750slapjack.Player player : Players) {
             player.NewHand(hands.get(handCount++));
         }
         */

@@ -1,0 +1,164 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.robbie.cs3750slapjack.MenuFragment">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical">
+
+        <TextView
+            android:text="Select the number of players"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txvSelectNum"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            android:textAlignment="center" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp">
+
+            <RadioButton
+                android:text="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="30dp"
+                android:id="@+id/rdo2Players" />
+
+            <RadioButton
+                android:text="4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/rdo4Players" />
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:id="@+id/layoutPlayer1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:visibility="invisible">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Player 1:"
+                android:id="@+id/txvPlayer1"
+                android:gravity="end"
+                android:layout_weight="1"
+                android:layout_marginTop="10dp" />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:ems="10"
+                android:id="@+id/edtPlayer1"
+                android:layout_gravity="end"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutPlayer2"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Player 2:"
+                android:id="@+id/txvPlayer2"
+                android:gravity="end"
+                android:layout_weight="1"
+                android:layout_marginTop="10dp" />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:ems="10"
+                android:id="@+id/edtPlayer2"
+                android:layout_gravity="end"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutPlayer3"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Player 3:"
+                android:id="@+id/txvPlayer3"
+                android:gravity="end"
+                android:layout_weight="1"
+                android:layout_marginTop="10dp" />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:ems="10"
+                android:id="@+id/edtPlayer3"
+                android:layout_gravity="end"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutPlayer4"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Player 4:"
+                android:id="@+id/txvPlayer4"
+                android:gravity="end"
+                android:layout_weight="1"
+                android:layout_marginTop="10dp" />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:ems="10"
+                android:id="@+id/edtPlayer4"
+                android:layout_gravity="end"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <Button
+            android:text="Play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnPlay"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:enabled="false" />
+
+    </LinearLayout>
+</FrameLayout>
