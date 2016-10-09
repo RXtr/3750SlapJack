@@ -105,7 +105,7 @@ public class SlapJackGame {
      */
     public void determineGainOrLoss(Player firstSlapper)
     {
-        if (isAJack(centerPile.getBottomCard()))
+        if (isAJack(centerPile.getBottomCard()) || isAPair())
         {
             awardCards(firstSlapper);
         }
@@ -156,12 +156,21 @@ public class SlapJackGame {
 
     /**
      * Determines if the card is a jack.
-     * @param c
+     * @param c The card to be determined if jack.
      * @return
      */
     public boolean isAJack(Card c)
     {
         return (c.getValue().equals("JACK"));
+    }
+
+    /**
+     * Determines if the top card and the card below it are the same value.
+     * @return
+     */
+    public boolean isAPair() {
+        return (centerPile.getBottomCard().getValue()
+        .equals(centerPile.getGroup().get(centerPile.CardCount()-2)));
     }
 
     public int getPlayerCount()
