@@ -86,4 +86,6 @@ public class GroupOfCards {
     public ArrayList<Card> getGroup(){
         return cards;
     }
+
+    public Card getBottomCard() { return cards.get(CardCount()-1);}
 }

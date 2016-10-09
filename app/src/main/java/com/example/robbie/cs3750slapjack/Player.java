@@ -22,6 +22,8 @@ public class Player extends GroupOfCards {
         this.giveCard(pile);
     }
 
+
+
     /**
      * When the player misslaps.
      * @param players The group of players to whom a card is given to.
@@ -34,6 +36,19 @@ public class Player extends GroupOfCards {
         }
     }
 
+    /**
+     * Activates when player slaps the center card.
+     * Only takes effect if at least one card exists in center pile.
+     * The player only adds itself to the list of slappers; the
+     * distribution of cards is handled elsewhere.
+     */
+    public void slapCard(GroupOfCards centerPile, ArrayList<Player> slappers)
+    {
+        if (centerPile.CardCount() > 0)
+        {
+            slappers.add(this);
+        }
+    }
 
 
     public GroupOfCards getHand() {
