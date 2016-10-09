@@ -47,6 +47,11 @@ public class SlapJackGame {
      */
     private ArrayList<Player> slappers;
 
+    /**
+     * The list of the players who are left with zero cards in hand.
+     */
+    private ArrayList<Player> losers;
+
     public SlapJackGame(ArrayList<Player> _players){
         Players = _players;
         deck = new Deck();
@@ -54,6 +59,7 @@ public class SlapJackGame {
         playerCount = _players.size();
         centerPile = new GroupOfCards();
         slappers = new ArrayList<>();
+        losers = new ArrayList<>();
     }
 
     /**
@@ -67,6 +73,7 @@ public class SlapJackGame {
         playerCount = 0;
         centerPile = new GroupOfCards();
         slappers = new ArrayList<>();
+        losers = new ArrayList<>();
     }
 
     /**
@@ -112,12 +119,37 @@ public class SlapJackGame {
 
     /**
      * Transfer the center pile to whoever slapped first.
-     * @param winner The player who won the slap.
+     * @param slapWinner The player who won the slap.
      */
-    public void awardCards(Player winner)
+    public void awardCards(Player slapWinner)
     {
         for (Card c : centerPile.getGroup())
-            centerPile.giveCard(winner);
+            centerPile.giveCard(slapWinner);
+    }
+
+    /**
+     * Remove the loser player from the list of players
+     * and add to the losers list.
+     * @param p The loser player
+     */
+    public void addToLosers(Player p)
+    {
+        if (p.CardCount() <= 0)
+        {
+            losers.add(p);
+            Players.remove(p);
+        }
+    }
+
+    /**
+     * The winner is the last player left in the Players list.
+     */
+    public Player determineWinner()
+    {
+        if (Players.size() == 1)
+        {
+            return Players.get(0);
+        }
     }
 
     /**
