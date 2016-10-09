@@ -146,10 +146,12 @@ public class SlapJackGame {
      */
     public Player determineWinner()
     {
+        Player winner = null;
         if (Players.size() == 1)
         {
-            return Players.get(0);
+            winner = Players.get(0);
         }
+        return winner;
     }
 
     /**
