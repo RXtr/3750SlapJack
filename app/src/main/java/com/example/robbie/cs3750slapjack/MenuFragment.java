@@ -31,7 +31,7 @@ public class MenuFragment extends Fragment {
     LinearLayout        layoutPlayer2;
     LinearLayout        layoutPlayer3;
     LinearLayout        layoutPlayer4;
-    private ArrayList<Player>   Players = new ArrayList<>();
+    private ArrayList<String>   Players = new ArrayList<>();
 
     public MenuFragment() {
         // Required empty public constructor
@@ -99,11 +99,11 @@ public class MenuFragment extends Fragment {
                     if (p1Name.matches(""))
                         p1Name = "Player 1";
                     else
-                        Players.add(0, new Player(p1Name));
+                        Players.add(0, p1Name);
                     if (p2Name.matches(""))
                         p2Name = "Player 2";
                     else
-                        Players.add(1, new Player(p2Name));
+                        Players.add(1, p2Name);
 
                     MainActivity ma = (MainActivity) getActivity();
                     ma.startGame(Players);
@@ -118,19 +118,19 @@ public class MenuFragment extends Fragment {
                     if (p1Name.matches(""))
                         p1Name = "Player 1";
                     else
-                        Players.add(0, new Player(p1Name));
+                        Players.add(0, p1Name);
                     if (p2Name.matches(""))
                         p2Name = "Player 2";
                     else
-                        Players.add(1, new Player(p2Name));
+                        Players.add(1, p2Name);
                     if (p3Name.matches(""))
                         p3Name = "Player 3";
                     else
-                        Players.add(2, new Player(p3Name));
+                        Players.add(2, p3Name);
                     if (p4Name.matches(""))
                         p4Name = "Player 4";
                     else
-                        Players.add(3, new Player(p4Name));
+                        Players.add(3, p4Name);
 
                     MainActivity ma = (MainActivity) getActivity();
                     ma.startGame(Players);
