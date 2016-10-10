@@ -52,6 +52,11 @@ public class SlapJackGame {
      */
     private ArrayList<Player> losers;
 
+    /**
+     * The index of the selected player.
+     */
+    private int selectedPlayer;
+
     public SlapJackGame(ArrayList<Player> _players){
         Players = _players;
         deck = new Deck();
@@ -60,6 +65,7 @@ public class SlapJackGame {
         centerPile = new GroupOfCards();
         slappers = new ArrayList<>();
         losers = new ArrayList<>();
+        selectedPlayer = 0;
     }
 
     /**
@@ -74,6 +80,7 @@ public class SlapJackGame {
         centerPile = new GroupOfCards();
         slappers = new ArrayList<>();
         losers = new ArrayList<>();
+        selectedPlayer = 0;
     }
 
     /**
@@ -152,6 +159,23 @@ public class SlapJackGame {
             winner = Players.get(0);
         }
         return winner;
+    }
+
+    /**
+     * Cycles through the players.
+     */
+    public Player selectNextPlayer()
+    {
+        // If selectedPlayer is at the last player, the index is cycled back to first player.
+        if (selectedPlayer >= Players.size() - 1)
+        {
+            selectedPlayer = 0;
+        }
+        else // Otherwise, move to the next player.
+        {
+            selectedPlayer++;
+        }
+        return Players.get(selectedPlayer);
     }
 
     /**
