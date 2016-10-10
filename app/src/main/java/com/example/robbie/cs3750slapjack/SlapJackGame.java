@@ -135,6 +135,17 @@ public class SlapJackGame {
     }
 
     /**
+     * The method that calls addToLosers on all the players.
+     */
+    public void determineLosers()
+    {
+        for (Player p : Players)
+        {
+            addToLosers(p);
+        }
+    }
+
+    /**
      * Remove the loser player from the list of players
      * and add to the losers list.
      * @param p The loser player
