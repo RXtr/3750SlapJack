@@ -1,5 +1,6 @@
 package com.example.robbie.cs3750slapjack;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -19,12 +20,18 @@ public class GameActivity extends AppCompatActivity {
         SlapJackGame objReceived = (SlapJackGame)((ObjectWrapperForBinder)getIntent()
                 .getExtras().getBinder("object_value")).getData();
         Log.d("Did this work", "received object=" + objReceived);
-        if(objReceived.getPlayerCount() == 2){
-            getSupportFragmentManager().beginTransaction().add(R.id.);
-        }
-        else{
 
+        if(objReceived.getPlayerCount() == 2) {
+            getSupportFragmentManager().beginTransaction().add(R.id.topRight, new HandFragment(), "playerOne").commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.bottomRight, new HandFragment(), "playerTwo").commit();
+        }
+        else {
+            getSupportFragmentManager().beginTransaction().add(R.id.topLeft, new HandFragment(), "playerOne").commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.topRight, new HandFragment(), "playerTwo").commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.bottomLeft, new HandFragment(), "playerThree").commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.bottomRight, new HandFragment(), "playerFour").commit();
         }
 
+        getSupportFragmentManager().beginTransaction().add(R.id.centerLayout, new CenterFragment(), "pileFragment").commit();
     }
 }

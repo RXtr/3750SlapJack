@@ -75,10 +75,15 @@ public class SlapJackGame {
     /**
      * The index of the selected player.
      */
-    private int selectedPlayer;
+    private int selectedPlayerIndex;
 
-    public void setSelectedPlayer(int value) {  selectedPlayer = value; }
-    public int getSelectedPlayer() { return selectedPlayer; }
+    /**
+     * The reference to the selected player.
+     */
+    private Player selectedPlayer;
+
+    public void setSelectedPlayer(int value) {  selectedPlayerIndex = value; }
+    public int getSelectedPlayer() { return selectedPlayerIndex; }
 
     public SlapJackGame(ArrayList<Player> _players){
         Players = _players;
@@ -88,7 +93,8 @@ public class SlapJackGame {
         centerPile = new GroupOfCards();
         slappers = new ArrayList<>();
         losers = new ArrayList<>();
-        selectedPlayer = 0;
+        selectedPlayerIndex = 0;
+        selectedPlayer = Players.get(selectedPlayerIndex);
     }
 
     /**
@@ -103,7 +109,8 @@ public class SlapJackGame {
         centerPile = new GroupOfCards();
         slappers = new ArrayList<>();
         losers = new ArrayList<>();
-        selectedPlayer = 0;
+        selectedPlayerIndex = 0;
+        selectedPlayer = Players.get(selectedPlayerIndex);
     }
 
     /**
@@ -201,18 +208,18 @@ public class SlapJackGame {
     /**
      * Cycles through the players.
      */
-    public Player selectNextPlayer()
+    public void selectNextPlayer()
     {
         // If selectedPlayer is at the last player, the index is cycled back to first player.
-        if (selectedPlayer >= Players.size() - 1)
+        if (selectedPlayerIndex >= Players.size() - 1)
         {
-            selectedPlayer = 0;
+            selectedPlayerIndex = 0;
         }
         else // Otherwise, move to the next player.
         {
-            selectedPlayer++;
+            selectedPlayerIndex++;
         }
-        return Players.get(selectedPlayer);
+        selectedPlayer = Players.get(selectedPlayerIndex);
     }
 
     /**
@@ -248,4 +255,10 @@ public class SlapJackGame {
     {
         return centerPile;
     }
+
+    public int getSelectedPlayerIndex()
+    {
+        return selectedPlayerIndex;
+    }
+
 }

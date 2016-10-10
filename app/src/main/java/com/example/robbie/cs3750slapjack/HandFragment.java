@@ -23,13 +23,12 @@ public class HandFragment extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = (View)inflater.inflate(R.layout.fragment_hand, container, false);
         icon = (ImageButton)view.findViewById(R.id.imageButton);
-        icon.setImageResource(R.drawable.dark_brotherhood_hand);
+        //icon.setImageResource(R.drawable.dark_brotherhood_hand);
 
         return view;
     }
