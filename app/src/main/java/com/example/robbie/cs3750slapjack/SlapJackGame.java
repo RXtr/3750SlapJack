@@ -19,12 +19,21 @@ public class SlapJackGame {
      */
     private ArrayList<Player> Players;
 
+    public void setPlayers(ArrayList<Player> value){Players = value;}
+    public ArrayList<Player> getPlayers() { return Players; }
+
     private int Dealer;
+
+    public void setDealer(int value){Dealer = value;}
+    public int getDealer(){ return Dealer;}
 
     /**
      * The number of turns.
      */
     private int PlayerTurn;
+
+    public void setPlayerTurn(int value){ PlayerTurn = value; }
+    public int getPlayerTurn() { return PlayerTurn; }
 
     /**
      * The total number of players.
@@ -36,10 +45,15 @@ public class SlapJackGame {
      */
     private GroupOfCards centerPile;
 
+    public void setCenterPile(GroupOfCards value){  centerPile = value; }
+
     /**
      * The deck to deal cards from.
      */
     private Deck deck;
+
+    public void setDeck(Deck value){ deck = value; }
+    public Deck getDeck(){ return deck; }
 
     /**
      * The list of the ones who slapped.
@@ -47,10 +61,16 @@ public class SlapJackGame {
      */
     private ArrayList<Player> slappers;
 
+    public void setSlappers(ArrayList<Player> value) {  slappers = value; }
+    public ArrayList<Player> getSlappers() { return slappers; }
+
     /**
      * The list of the players who are left with zero cards in hand.
      */
     private ArrayList<Player> losers;
+
+    public void setLosers(ArrayList<Player> value) {  losers = value; }
+    public ArrayList<Player> getLosers() { return losers; }
 
     /**
      * The index of the selected player.
@@ -61,6 +81,9 @@ public class SlapJackGame {
      * The reference to the selected player.
      */
     private Player selectedPlayer;
+
+    public void setSelectedPlayer(int value) {  selectedPlayer = value; }
+    public int getSelectedPlayer() { return selectedPlayer; }
 
     public SlapJackGame(ArrayList<Player> _players){
         Players = _players;
