@@ -82,8 +82,8 @@ public class SlapJackGame {
      */
     private Player selectedPlayer;
 
-    public void setSelectedPlayer(int value) {  selectedPlayer = value; }
-    public int getSelectedPlayer() { return selectedPlayer; }
+    public void setSelectedPlayer(int value) {  selectedPlayerIndex = value; }
+    public int getSelectedPlayer() { return selectedPlayerIndex; }
 
     public SlapJackGame(ArrayList<Player> _players){
         Players = _players;
@@ -261,8 +261,4 @@ public class SlapJackGame {
         return selectedPlayerIndex;
     }
 
-    public Player getSelectedPlayer()
-    {
-        return selectedPlayer;
-    }
 }
