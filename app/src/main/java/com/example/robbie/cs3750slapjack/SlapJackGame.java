@@ -158,6 +158,9 @@ public class SlapJackGame {
         {
             winner = Players.get(0);
         }
+        // Reset all the lists.
+        losers.clear();
+        slappers.clear();
         return winner;
     }
 
