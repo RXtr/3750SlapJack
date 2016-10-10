@@ -1,7 +1,9 @@
 package com.example.robbie.cs3750slapjack;
 
 
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,7 +33,7 @@ public class MenuFragment extends Fragment {
     LinearLayout        layoutPlayer2;
     LinearLayout        layoutPlayer3;
     LinearLayout        layoutPlayer4;
-    private ArrayList<String>   Players = new ArrayList<>();
+    private ArrayList<Player>   Players = new ArrayList<>();
 
     public MenuFragment() {
         // Required empty public constructor
@@ -90,20 +92,19 @@ public class MenuFragment extends Fragment {
          * in MainActivity
          */
         btnPlay.setOnClickListener(new View.OnClickListener(){
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
             @Override
             public void onClick(View v) {
                 if (rdo2Players.isChecked()) {
                     String p1Name = edtPlayer1.getText().toString();
                     String p2Name = edtPlayer2.getText().toString();
 
-                    if (p1Name.matches(""))
+                    if (p1Name.matches("") || p1Name.equals(""))
                         p1Name = "Player 1";
-                    else
-                        Players.add(0, p1Name);
-                    if (p2Name.matches(""))
+                    Players.add(0, new Player(p1Name));
+                    if (p2Name.matches("") || p2Name.equals(""))
                         p2Name = "Player 2";
-                    else
-                        Players.add(1, p2Name);
+                    Players.add(1, new Player(p2Name));
 
                     MainActivity ma = (MainActivity) getActivity();
                     ma.startGame(Players);
@@ -115,22 +116,18 @@ public class MenuFragment extends Fragment {
                     String p3Name = edtPlayer3.getText().toString();
                     String p4Name = edtPlayer4.getText().toString();
 
-                    if (p1Name.matches(""))
+                    if (p1Name.matches("") || p1Name.equals(""))
                         p1Name = "Player 1";
-                    else
-                        Players.add(0, p1Name);
-                    if (p2Name.matches(""))
+                    Players.add(0, new Player(p1Name));
+                    if (p2Name.matches("") || p2Name.equals(""))
                         p2Name = "Player 2";
-                    else
-                        Players.add(1, p2Name);
-                    if (p3Name.matches(""))
+                    Players.add(1, new Player(p2Name));
+                    if (p3Name.matches("") || p3Name.equals(""))
                         p3Name = "Player 3";
-                    else
-                        Players.add(2, p3Name);
-                    if (p4Name.matches(""))
+                    Players.add(2, new Player(p3Name));
+                    if (p4Name.matches("") || p4Name.equals(""))
                         p4Name = "Player 4";
-                    else
-                        Players.add(3, p4Name);
+                    Players.add(3, new Player(p4Name));
 
                     MainActivity ma = (MainActivity) getActivity();
                     ma.startGame(Players);

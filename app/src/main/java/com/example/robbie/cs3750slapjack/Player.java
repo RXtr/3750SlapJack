@@ -22,7 +22,7 @@ public class Player extends GroupOfCards {
         this.giveCard(pile);
     }
 
-
+    public String getName(){ return Name; }
 
     /**
      * When the player misslaps.
