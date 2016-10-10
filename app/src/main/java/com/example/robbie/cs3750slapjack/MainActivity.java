@@ -1,7 +1,5 @@
 package com.example.robbie.cs3750slapjack;
 
-//comment
-
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;

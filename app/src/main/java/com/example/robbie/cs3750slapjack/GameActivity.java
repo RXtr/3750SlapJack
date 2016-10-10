@@ -1,5 +1,6 @@
 package com.example.robbie.cs3750slapjack;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -16,19 +17,21 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-        text = (TextView)findViewById(R.id.textView);
         Log.d("Did this work", "Maybe4");
         SlapJackGame objReceived = (SlapJackGame)((ObjectWrapperForBinder)getIntent()
                 .getExtras().getBinder("object_value")).getData();
         Log.d("Did this work", "received object=" + objReceived);
-        if(objReceived.getPlayerCount() == 2){
-
+        if(objReceived.getPlayerCount() == 2) {
+            getSupportFragmentManager().beginTransaction().add(R.id.topRight, new HandFragment(), "playerOne").commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.bottomRight, new HandFragment(), "playerTwo").commit();
         }
-        else{
-
+        else {
+            getSupportFragmentManager().beginTransaction().add(R.id.topLeft, new HandFragment(), "playerOne").commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.topRight, new HandFragment(), "playerTwo").commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.bottomLeft, new HandFragment(), "playerThree").commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.bottomRight, new HandFragment(), "playerFour").commit();
         }
-        text.setText("Player count" + objReceived.getPlayerCount()  + "\n" + objReceived.getPlayers().get(0).getName()
-            + " \n" + objReceived.getPlayers().get(1).getName());
 
+        getSupportFragmentManager().beginTransaction().add(R.id.centerLayout, new CenterFragment(), "pileFragment").commit();
     }
 }
