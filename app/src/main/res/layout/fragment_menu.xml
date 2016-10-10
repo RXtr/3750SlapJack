@@ -1,4 +1,5 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,6 +10,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="302dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/slapjack_logo"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp" />
 
         <TextView
             android:text="Select the number of players"
@@ -56,9 +65,9 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Player 1:"
                 android:id="@+id/txvPlayer1"
-                android:gravity="end"
                 android:layout_weight="1"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="10dp"
+                android:gravity="end" />
 
             <EditText
                 android:layout_width="0dp"
@@ -67,7 +76,8 @@
                 android:ems="10"
                 android:id="@+id/edtPlayer1"
                 android:layout_gravity="end"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:hint="Name" />
         </LinearLayout>
 
         <LinearLayout
@@ -94,7 +104,8 @@
                 android:ems="10"
                 android:id="@+id/edtPlayer2"
                 android:layout_gravity="end"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:hint="Name"/>
         </LinearLayout>
 
         <LinearLayout
@@ -121,7 +132,8 @@
                 android:ems="10"
                 android:id="@+id/edtPlayer3"
                 android:layout_gravity="end"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:hint="Name"/>
         </LinearLayout>
 
         <LinearLayout
@@ -148,7 +160,8 @@
                 android:ems="10"
                 android:id="@+id/edtPlayer4"
                 android:layout_gravity="end"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:hint="Name"/>
         </LinearLayout>
 
         <Button
@@ -157,7 +170,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/btnPlay"
             android:layout_gravity="center"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:enabled="false" />
 
     </LinearLayout>
