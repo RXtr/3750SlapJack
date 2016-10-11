@@ -88,7 +88,7 @@ public class Card {
      * @return formatted string
      */
     public String toString() {
-        return value.toString() + " of " + suit.toString();
+        return value.toString().toLowerCase() + "_" + suit.toString().toLowerCase() + ".png";
     }
 
 

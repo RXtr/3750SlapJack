@@ -72,12 +72,15 @@ public class GroupOfCards {
      * The helper method to give cards.
      * @param group The group of cards to which cards are given to.
      */
-    public void giveCard(GroupOfCards group)
+    public Card giveCard(GroupOfCards group)
     {
+        Card card = null;
         if (this.getGroup().size() > 0) {
-            group.getGroup().add(this.getGroup().get(0));
+            card = this.getGroup().get(0);
+            group.getGroup().add(card);
             this.getGroup().remove(0);
         }
+        return card;
     }
 
     public int CardCount(){
