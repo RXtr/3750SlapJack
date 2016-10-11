@@ -5,12 +5,14 @@ package com.example.robbie.cs3750slapjack; /**
 import java.util.*;
 
 public class Player extends GroupOfCards {
-    private String Name;
+    private String name;
+    private int playerNumber;
 
-    public Player(String name)
+    public Player(String name, int playerNumber)
     {
         super();
-        Name = name;
+        this.name = name;
+        this.playerNumber = playerNumber;
     }
 
     public void NewHand(GroupOfCards newhand){
@@ -22,7 +24,9 @@ public class Player extends GroupOfCards {
         this.giveCard(pile);
     }
 
-    public String getName(){ return Name; }
+    public String getName(){ return name; }
+
+    public int getPlayerNumber() { return playerNumber; }
 
     /**
      * When the player misslaps.

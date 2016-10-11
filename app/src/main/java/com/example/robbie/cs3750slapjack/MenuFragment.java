@@ -102,10 +102,10 @@ public class MenuFragment extends Fragment {
 
                     if (p1Name.matches("") || p1Name.equals(""))
                         p1Name = "Player 1";
-                    Players.add(0, new Player(p1Name));
+                    Players.add(0, new Player(p1Name, 0));
                     if (p2Name.matches("") || p2Name.equals(""))
                         p2Name = "Player 2";
-                    Players.add(1, new Player(p2Name));
+                    Players.add(1, new Player(p2Name, 1));
 
                     MainActivity ma = (MainActivity) getActivity();
                     ma.startGame(Players);
@@ -119,16 +119,16 @@ public class MenuFragment extends Fragment {
 
                     if (p1Name.matches("") || p1Name.equals(""))
                         p1Name = "Player 1";
-                    Players.add(0, new Player(p1Name));
+                    Players.add(0, new Player(p1Name, 0));
                     if (p2Name.matches("") || p2Name.equals(""))
                         p2Name = "Player 2";
-                    Players.add(1, new Player(p2Name));
+                    Players.add(1, new Player(p2Name, 1));
                     if (p3Name.matches("") || p3Name.equals(""))
                         p3Name = "Player 3";
-                    Players.add(2, new Player(p3Name));
+                    Players.add(2, new Player(p3Name, 2));
                     if (p4Name.matches("") || p4Name.equals(""))
                         p4Name = "Player 4";
-                    Players.add(3, new Player(p4Name));
+                    Players.add(3, new Player(p4Name, 3));
 
                     MainActivity ma = (MainActivity) getActivity();
                     ma.startGame(Players);

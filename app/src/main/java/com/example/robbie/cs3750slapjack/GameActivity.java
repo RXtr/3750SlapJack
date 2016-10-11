@@ -1,10 +1,12 @@
 package com.example.robbie.cs3750slapjack;
 
+import android.app.Dialog;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.animation.AnimationUtils;
 
 import java.util.ArrayList;
 
@@ -81,6 +83,7 @@ public class GameActivity extends AppCompatActivity {
         {
             playerBoards[i].setPlayerLabel(players.get(i).getName());
             playerBoards[i].setCardCountLabel(players.get(i).CardCount());
+            playerBoards[i].setSlapIndex(i);
         }
     }
 
@@ -103,5 +106,47 @@ public class GameActivity extends AppCompatActivity {
 
         game.selectNextPlayer();
         highlightPlayer(game.getSelectedPlayer());
+    }
+
+    public void playerSlap(int slapIndex)
+    {
+        if(game.getCenterPile().CardCount() == 0)
+            return;
+
+        Player slappee = game.getPlayers().get(slapIndex);
+        game.setSlapper(slappee);
+
+        if(game.isAJack(game.getCenterPile().getBottomCard()) || game.isAPair())
+        {
+            game.awardCards(slappee);
+        }
+        else
+        {
+            slappee.giveCardsMisslap(game.getPlayers());
+            if(slappee.CardCount() <= 0)
+            {
+                game.addToLosers(slappee);
+                game.getPlayers().remove(slappee.getPlayerNumber());
+                disablePlayer(slappee);
+                if(game.getPlayers().size() == 1) {
+
+                    Player winner = game.determineWinner();
+
+                    //show winner
+
+                }
+            }
+        }
+    }
+
+    public void disablePlayer(Player loser)
+    {
+        playerBoards[loser.getPlayerNumber()].outOfGame();
+    }
+
+    public void scalaAnimation()
+    {
+        //AnimationUtils.LoadAnimation(this, R.anim.scale_anim);
+
     }
 }
