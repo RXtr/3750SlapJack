@@ -88,8 +88,8 @@ public class SlapJackGame {
     public SlapJackGame(ArrayList<Player> _players) {
         Players = _players;
         deck = new Deck();
-        Deal();
         playerCount = _players.size();
+        Deal();
         centerPile = new GroupOfCards();
         slappers = new ArrayList<>();
         losers = new ArrayList<>();
@@ -104,8 +104,8 @@ public class SlapJackGame {
     {
         Players = new ArrayList<>();
         deck = new Deck();
-        Deal();
         playerCount = 0;
+        Deal();
         centerPile = new GroupOfCards();
         slappers = new ArrayList<>();
         losers = new ArrayList<>();
