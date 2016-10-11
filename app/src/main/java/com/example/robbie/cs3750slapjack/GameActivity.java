@@ -23,6 +23,7 @@ public class GameActivity extends AppCompatActivity {
         Log.d("Did this work", "received object=" + objReceived);
         players = new HandFragment[objReceived.getPlayerCount()];
         if(objReceived.getPlayerCount() == 2) {
+            players = new HandFragment[2];
             players[0] = new HandFragment();
             players[1] = new HandFragment();
             getSupportFragmentManager().beginTransaction().add(R.id.topRight, players[0], "playerOne").commit();
@@ -30,6 +31,7 @@ public class GameActivity extends AppCompatActivity {
 
         }
         else {
+            players = new HandFragment[4];
             players[0] = new HandFragment();
             players[1] = new HandFragment();
             players[2] = new HandFragment();
