@@ -33,10 +33,11 @@ public class MenuFragment extends Fragment {
     LinearLayout        layoutPlayer2;
     LinearLayout        layoutPlayer3;
     LinearLayout        layoutPlayer4;
-    private ArrayList<Player>   Players = new ArrayList<>();
+    private ArrayList<Player>   Players;
 
     public MenuFragment() {
         // Required empty public constructor
+        Players = new ArrayList<>();
     }
 
 
