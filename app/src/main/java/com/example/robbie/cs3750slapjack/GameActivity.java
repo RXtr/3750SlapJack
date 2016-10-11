@@ -20,10 +20,8 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        Log.d("Did this work", "Maybe4");
         game = (SlapJackGame)((ObjectWrapperForBinder)getIntent()
                 .getExtras().getBinder("object_value")).getData();
-        Log.d("Did this work", "received object=" + game);
 
         if(game.getPlayerCount() == 2) {
             playerBoards = new HandFragment[2];
@@ -43,7 +41,6 @@ public class GameActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().add(R.id.topRight, playerBoards[1], "playerTwo").commit();
             getSupportFragmentManager().beginTransaction().add(R.id.bottomLeft, playerBoards[2], "playerThree").commit();
             getSupportFragmentManager().beginTransaction().add(R.id.bottomRight, playerBoards[3], "playerFour").commit();
-
         }
         getSupportFragmentManager().beginTransaction().add(R.id.centerLayout, new CenterFragment(), "pileFragment").commit();
     }
@@ -52,14 +49,14 @@ public class GameActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         setPlayerBoards(game.getPlayers());
-        //highlightPlayer(game.getSelectedPlayer());
+        highlightPlayer(game.getSelectedPlayer());
     }
 
     public void highlightPlayer(int player)
     {
         if(player == 0) {
             playerBoards[0].highlight();
-            playerBoards[4].removeHighlight();
+            playerBoards[playerBoards.length - 1].removeHighlight();
         }
 
         else if(player == 1){
@@ -82,8 +79,29 @@ public class GameActivity extends AppCompatActivity {
     {
         for(int i = 0; i < players.size(); i++)
         {
-            playerBoards[i].setPlayerLabel(players.get(i).getName().toString());
-            playerBoards[i].setCardCountLabel(players.get(i).getHand().CardCount());
+            playerBoards[i].setPlayerLabel(players.get(i).getName());
+            playerBoards[i].setCardCountLabel(players.get(i).CardCount());
         }
+    }
+
+    public void playerTurn()
+    {
+        Player player = game.getPlayers().get(game.getSelectedPlayer());
+        player.placeCard(game.getCenterPile());
+        HandFragment fa;
+
+        if(game.getSelectedPlayer() == 0)
+            fa = (HandFragment) getSupportFragmentManager().findFragmentByTag("playerOne");
+        else if(game.getSelectedPlayer() == 1)
+            fa = (HandFragment) getSupportFragmentManager().findFragmentByTag("playerTwo");
+        else if(game.getSelectedPlayer() == 2)
+            fa = (HandFragment) getSupportFragmentManager().findFragmentByTag("playerThree");
+        else
+            fa = (HandFragment) getSupportFragmentManager().findFragmentByTag("playerFour");
+
+        fa.setCardCountLabel(player.CardCount());
+
+        game.selectNextPlayer();
+        highlightPlayer(game.getSelectedPlayer());
     }
 }

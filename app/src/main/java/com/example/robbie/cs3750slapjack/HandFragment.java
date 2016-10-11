@@ -2,6 +2,7 @@ package com.example.robbie.cs3750slapjack;
 
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -42,11 +43,13 @@ public class HandFragment extends Fragment {
     public void highlight()
     {
         playerName.setTextColor(Color.rgb(252, 108, 178));
+        playerName.setTypeface(null, Typeface.BOLD);
     }
 
     public void removeHighlight()
     {
         playerName.setTextColor(Color.BLACK);
+        playerName.setTypeface(null, Typeface.NORMAL);
     }
 
 
