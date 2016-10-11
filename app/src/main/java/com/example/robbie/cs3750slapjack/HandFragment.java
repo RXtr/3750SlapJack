@@ -40,7 +40,7 @@ public class HandFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = (View) inflater.inflate(R.layout.fragment_hand, container, false);
+        View view = inflater.inflate(R.layout.fragment_hand, container, false);
         icon = (ImageButton) view.findViewById(R.id.imageButton);
         icon.getBackground().setColorFilter(getRandomColor(), PorterDuff.Mode.SRC_ATOP);
 
