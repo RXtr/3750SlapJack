@@ -26,11 +26,11 @@ public class MainActivity extends AppCompatActivity {
      */
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
     public void startGame(ArrayList<Player> players) {
-         SlapJackGame objSent = new SlapJackGame(players);
-         Bundle bundle = new Bundle();
+
+        SlapJackGame objSent = new SlapJackGame(players);
+        Bundle bundle = new Bundle();
         bundle.putBinder("object_value", new ObjectWrapperForBinder(objSent));
         startActivity(new Intent(this, GameActivity.class).putExtras(bundle));
         Log.d("does this work", "original object=" + objSent);
-        //getSupportFragmentManager().beginTransaction().replace(R.id.activity_main,new HandFragment(),"blah").commit();
     }
 }

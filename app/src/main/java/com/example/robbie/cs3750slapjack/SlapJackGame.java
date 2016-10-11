@@ -85,7 +85,7 @@ public class SlapJackGame {
     public void setSelectedPlayer(int value) {  selectedPlayerIndex = value; }
     public int getSelectedPlayer() { return selectedPlayerIndex; }
 
-    public SlapJackGame(ArrayList<Player> _players){
+    public SlapJackGame(ArrayList<Player> _players) {
         Players = _players;
         deck = new Deck();
         Deal();
