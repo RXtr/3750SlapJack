@@ -27,10 +27,20 @@ public class HandFragment extends Fragment {
         // Required empty public constructor
     }
 
+    public void highlight()
+    {
+        playerName.setTextColor(Color.rgb(252, 108, 178));
+    }
+
+    public void removeHighlight()
+    {
+        playerName.setTextColor(Color.BLACK);
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = (View) inflater.inflate(R.layout.fragment_hand, container, false);
+        View view = inflater.inflate(R.layout.fragment_hand, container, false);
         icon = (ImageButton) view.findViewById(R.id.imageButton);
         icon.getBackground().setColorFilter(getRandomColor(), PorterDuff.Mode.SRC_ATOP);
 
