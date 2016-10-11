@@ -11,7 +11,6 @@ public class Deck extends GroupOfCards {
 
     public Deck()
     {
-        super();
         for (Card.CardSuit suit : Card.CardSuit.values()) {
             for (Card.CardValue value : Card.CardValue.values()) {
                 cards.add(new Card(suit, value));
