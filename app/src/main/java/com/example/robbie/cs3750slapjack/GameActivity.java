@@ -21,9 +21,9 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
         Log.d("Did this work", "Maybe4");
-        SlapJackGame objReceived = (SlapJackGame)((ObjectWrapperForBinder)getIntent()
+        game = (SlapJackGame)((ObjectWrapperForBinder)getIntent()
                 .getExtras().getBinder("object_value")).getData();
-        Log.d("Did this work", "received object=" + objReceived);
+        Log.d("Did this work", "received object=" + game);
 
         if(game.getPlayerCount() == 2) {
             playerBoards = new HandFragment[2];
