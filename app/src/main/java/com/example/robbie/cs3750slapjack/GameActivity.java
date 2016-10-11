@@ -1,6 +1,5 @@
 package com.example.robbie.cs3750slapjack;
 
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;

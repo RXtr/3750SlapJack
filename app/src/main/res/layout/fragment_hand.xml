@@ -1,37 +1,42 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.robbie.cs3750slapjack.HandFragment">
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageButton"
-        android:layout_gravity="center" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="CardCount"
-        android:id="@+id/CardCount"
-        android:layout_gravity="right|bottom"
-        android:layout_alignTop="@+id/PlayerName"
-        android:layout_toRightOf="@+id/PlayerName"
-        android:layout_toEndOf="@+id/PlayerName"
-        android:layout_marginLeft="20dp"
-        android:layout_marginStart="20dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="PlayerName"
+        android:text="Name"
         android:id="@+id/PlayerName"
         android:layout_gravity="center_horizontal|bottom"
         android:layout_below="@+id/imageButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/imageButton"
+        android:src="@drawable/hand_icon"
+        android:scaleType="fitCenter"
+        android:layout_gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/circle" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="50"
+        android:id="@+id/CardCount"
+        android:layout_gravity="right|bottom"
+        android:layout_below="@+id/imageButton"
+        android:layout_alignRight="@+id/imageButton"
+        android:layout_alignEnd="@+id/imageButton" />
 
 </RelativeLayout>
