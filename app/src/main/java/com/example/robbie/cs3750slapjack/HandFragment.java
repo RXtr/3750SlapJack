@@ -3,6 +3,7 @@ package com.example.robbie.cs3750slapjack;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -21,6 +22,7 @@ public class HandFragment extends Fragment {
     ImageButton icon;
     private TextView cardCount;
     private TextView playerName;
+    private int slapIndex;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,6 +33,13 @@ public class HandFragment extends Fragment {
         icon = (ImageButton) view.findViewById(R.id.imageButton);
         icon.getBackground().setColorFilter(getRandomColor(), PorterDuff.Mode.SRC_ATOP);
 
+        icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GameActivity ga = (GameActivity)getActivity();
+                ga.playerSlap(slapIndex);
+            }
+        });
 
         return view;
     }
@@ -52,10 +61,24 @@ public class HandFragment extends Fragment {
         playerName.setTypeface(null, Typeface.NORMAL);
     }
 
+    public void setSlapIndex(int playerIndex)
+    {
+        slapIndex = playerIndex;
+    }
 
     public int getRandomColor(){
         Random rnd = new Random();
         return Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
+    }
+
+    public void outOfGame()
+    {
+        icon.setEnabled(false);
+        cardCount.setEnabled(false);
+        playerName.setEnabled(false);
+        icon.setImageDrawable(Drawable.createFromPath("drawable/hand_disabled.png"));
+        Drawable handDisabled = getResources().getDrawable(R.drawable.hand_disabled);
+        icon.setImageDrawable(handDisabled);
     }
 
     public void setPlayerLabel(String name)

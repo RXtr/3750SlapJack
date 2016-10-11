@@ -61,7 +61,7 @@ public class SlapJackGame {
      */
     private ArrayList<Player> slappers;
 
-    public void setSlappers(ArrayList<Player> value) {  slappers = value; }
+    public void setSlapper(Player player) {  slappers.add(player); }
     public ArrayList<Player> getSlappers() { return slappers; }
 
     /**
