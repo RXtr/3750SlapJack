@@ -16,11 +16,12 @@ public class GameActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
         Log.d("Did this work", "Maybe4");
         SlapJackGame objReceived = (SlapJackGame)((ObjectWrapperForBinder)getIntent()
                 .getExtras().getBinder("object_value")).getData();
         Log.d("Did this work", "received object=" + objReceived);
-
+        players = new HandFragment[objReceived.getPlayerCount()];
         if(objReceived.getPlayerCount() == 2) {
             players[0] = new HandFragment();
             players[1] = new HandFragment();
@@ -42,7 +43,7 @@ public class GameActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction().add(R.id.centerLayout, new CenterFragment(), "pileFragment").commit();
 
-        highlightPlayer(objReceived.getSelectedPlayer());
+        //highlightPlayer(objReceived.getSelectedPlayer());
 
 
     }
