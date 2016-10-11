@@ -19,6 +19,7 @@ public class GameActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
         Log.d("Did this work", "Maybe4");
         SlapJackGame objReceived = (SlapJackGame)((ObjectWrapperForBinder)getIntent()
                 .getExtras().getBinder("object_value")).getData();
