@@ -16,6 +16,8 @@ public class Deck extends GroupOfCards {
                 cards.add(new Card(suit, value));
             }
         }
+
+        Shuffle();
     }
 
     public ArrayList<Card> getDeck()
