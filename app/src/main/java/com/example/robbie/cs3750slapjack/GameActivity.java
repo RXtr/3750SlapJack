@@ -124,7 +124,7 @@ public class GameActivity extends AppCompatActivity {
         Player slapper = game.getPlayers().get(slapIndex);
         game.setSlapper(slapper);
 
-        if(game.isAJack(game.getCenterPile().getBottomCard()) || game.isAPair()) 
+        if(game.isAJack(game.getCenterPile().getBottomCard()) || game.isAPair())
         {
             ca = (CenterFragment)getSupportFragmentManager().findFragmentByTag("pileFragment");
             game.awardCards(slapper);
@@ -150,20 +150,26 @@ public class GameActivity extends AppCompatActivity {
         }
         int playersLeft = game.getPlayers().size();
 
+        // Update the card count labels for each player.
         for(int i = 0; i < playersLeft; i++)
         {
             int playerIndex = game.getPlayers().get(i).getPlayerNumber();
 
-            if(playerIndex == 0)
+            if(playerIndex == 0) {
                 fa = (HandFragment) getSupportFragmentManager().findFragmentByTag("playerOne");
-            else if(playerIndex == 1)
+            }
+            else if(playerIndex == 1) {
                 fa = (HandFragment) getSupportFragmentManager().findFragmentByTag("playerTwo");
-            else if(playerIndex == 2)
+            }
+            else if(playerIndex == 2) {
                 fa = (HandFragment) getSupportFragmentManager().findFragmentByTag("playerThree");
-            else
+            }
+            else {
                 fa = (HandFragment) getSupportFragmentManager().findFragmentByTag("playerFour");
+            }
 
-            fa.setCardCountLabel(slapper.CardCount());
+            //fa.setCardCountLabel(slapper.CardCount());
+            fa.setCardCountLabel(game.getPlayers().get(i).CardCount());
         }
     }
 
