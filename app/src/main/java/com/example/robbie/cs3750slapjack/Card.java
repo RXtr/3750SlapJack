@@ -88,7 +88,26 @@ public class Card {
      * @return formatted string
      */
     public String toString() {
-        return value.toString().toLowerCase() + "_" + suit.toString().toLowerCase() + ".png";
+        String valueString = value.toString().toLowerCase();
+        if(valueString.equals("2"))
+            valueString = "two";
+        else if(valueString.equals("3"))
+            valueString = "three";
+        else if(valueString.equals("4"))
+            valueString = "four";
+        else if(valueString.equals("5"))
+            valueString = "five";
+        else if(valueString.equals("6"))
+            valueString = "six";
+        else if(valueString.equals("7"))
+            valueString = "seven";
+        else if(valueString.equals("8"))
+            valueString = "eight";
+        else if(valueString.equals("9"))
+            valueString = "nine";
+        else if(valueString.equals("10"))
+            valueString = "ten";
+        return valueString + "_" + suit.toString().toLowerCase() + ".png";
     }
 
 
