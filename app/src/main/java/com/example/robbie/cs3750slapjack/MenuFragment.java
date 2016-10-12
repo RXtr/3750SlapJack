@@ -137,12 +137,15 @@ public class MenuFragment extends Fragment {
                     Toast.makeText(getActivity(), "Select the number of players before playing.", Toast.LENGTH_SHORT).show();
             }
         });
-
-
         return menuView;
     }
 
     public void removePlayers(){
-        Players.removeAll(Players);
+        for(int i = 0; i < Players.size(); i++)
+            Players.remove(i);
+        if (rdo2Players.isChecked())
+            rdo2Players.toggle();
+        if (rdo4Players.isChecked())
+            rdo4Players.toggle();
     }
 }
