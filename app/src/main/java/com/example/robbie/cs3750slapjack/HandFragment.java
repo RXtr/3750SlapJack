@@ -24,6 +24,7 @@ public class HandFragment extends Fragment {
     private TextView playerName;
     private int slapIndex;
 
+    private SlapJackGame game;
     public HandFragment() {
 
         // Required empty public constructor
@@ -50,6 +51,9 @@ public class HandFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 GameActivity ga = (GameActivity)getActivity();
+//                game = ga.getGame();
+//                // Determine who slapped first.
+//                game.determineGainOrLoss(game.getSlappers().get(0));
                 ga.playerSlap(slapIndex);
             }
         });

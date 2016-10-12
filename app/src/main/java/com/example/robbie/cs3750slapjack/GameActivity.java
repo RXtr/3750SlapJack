@@ -181,4 +181,8 @@ public class GameActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public SlapJackGame getGame()
+    {
+        return game;
+    }
 }

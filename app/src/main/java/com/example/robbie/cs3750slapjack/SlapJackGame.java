@@ -234,7 +234,7 @@ public class SlapJackGame {
      */
     public boolean isAJack(Card c)
     {
-        return (c.getValue().equals("JACK"));
+        return (c.getValue().equals(Card.CardValue.JACK));
     }
 
     /**
