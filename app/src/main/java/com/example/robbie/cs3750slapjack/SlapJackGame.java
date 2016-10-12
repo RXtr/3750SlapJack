@@ -215,16 +215,16 @@ public class SlapJackGame {
      */
     public void selectNextPlayer()
     {
-        // If selectedPlayer is at the last player, the index is cycled back to first player.
-        if (selectedPlayerIndex >= Players.size() - 1)
-        {
-            selectedPlayerIndex = 0;
-        }
-        else // Otherwise, move to the next player.
-        {
-            selectedPlayerIndex++;
-        }
-        selectedPlayer = Players.get(selectedPlayerIndex);
+        do {
+            // If selectedPlayer is at the last player, the index is cycled back to first player.
+            if (selectedPlayerIndex >= Players.size() - 1) {
+                selectedPlayerIndex = 0;
+            } else // Otherwise, move to the next player.
+            {
+                selectedPlayerIndex++;
+            }
+            selectedPlayer = Players.get(selectedPlayerIndex);
+        }while(selectedPlayer.getHand().CardCount() == 0);
     }
 
     /**

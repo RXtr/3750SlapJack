@@ -1,10 +1,13 @@
 package com.example.robbie.cs3750slapjack;
 
+import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 
@@ -12,6 +15,10 @@ public class GameActivity extends AppCompatActivity {
 
     HandFragment[] playerBoards;
     SlapJackGame game;
+    LinearLayout topLeft;
+    LinearLayout topRight;
+    LinearLayout bottomLeft;
+    LinearLayout bottomRight;
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
     @Override
@@ -21,6 +28,10 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+        topLeft =     (LinearLayout)findViewById(R.id.topLeft);
+        topRight =    (LinearLayout)findViewById(R.id.topRight);
+        bottomLeft =  (LinearLayout)findViewById(R.id.bottomLeft);
+        bottomRight = (LinearLayout)findViewById(R.id.bottomRight);
         game = (SlapJackGame)((ObjectWrapperForBinder)getIntent()
                 .getExtras().getBinder("object_value")).getData();
 
@@ -33,6 +44,19 @@ public class GameActivity extends AppCompatActivity {
 
         }
         else {
+            LinearLayout.LayoutParams s = (LinearLayout.LayoutParams) topLeft.getLayoutParams();
+            s.weight = (float)1.9;
+            topLeft.setLayoutParams(s);
+            s = (LinearLayout.LayoutParams) topRight.getLayoutParams();
+            s.weight = (float).1;
+            topRight.setLayoutParams(s);
+            s = (LinearLayout.LayoutParams) bottomLeft.getLayoutParams();
+            s.weight = (float)1.9;
+            bottomLeft.setLayoutParams(s);
+            s = (LinearLayout.LayoutParams) bottomRight.getLayoutParams();
+            s.weight = (float).1;
+            bottomRight.setLayoutParams(s);
+
             playerBoards = new HandFragment[4];
             playerBoards[0] = new HandFragment();
             playerBoards[1] = new HandFragment();
@@ -147,6 +171,7 @@ public class GameActivity extends AppCompatActivity {
                     //stop everything
                 }
             }
+
         }
         int playersLeft = game.getPlayers().size();
 
@@ -183,7 +208,26 @@ public class GameActivity extends AppCompatActivity {
         //AnimationUtils.LoadAnimation(this, R.anim.scale_anim);
     }
 
+    public void winnerWinnerChickenDinner(String name){
+        AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
+        builder.setCancelable(false);
+        builder.setTitle("WINNER");
+        builder.setMessage(name + " Wins everyone else loses");
+        builder.setPositiveButton("New Game?", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int id) {
+                game = new SlapJackGame(game.getPlayers());
+            }
+        })
+                .setNegativeButton("Start Menu ", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                });
 
+        builder.create().show();
+    }
 
     public SlapJackGame getGame()
     {

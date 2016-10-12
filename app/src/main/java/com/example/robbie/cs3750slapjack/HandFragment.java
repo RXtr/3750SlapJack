@@ -51,10 +51,17 @@ public class HandFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 GameActivity ga = (GameActivity)getActivity();
-//                game = ga.getGame();
+                game = ga.getGame();
 //                // Determine who slapped first.
 //                game.determineGainOrLoss(game.getSlappers().get(0));
                 ga.playerSlap(slapIndex);
+                for(int p = 0; p < game.getPlayers().size(); p++){
+                    if(game.getPlayers().get(p).getName().equals(playerName.getText().toString()) && game.getPlayers().get(p).getHand().CardCount() == 52){
+                        game.getPlayers().get(p).getHand().getGroup().clear();
+                        cardCount.setText(game.getPlayers().get(p).getHand().CardCount()+"");
+                        ga.winnerWinnerChickenDinner(game.getPlayers().get(p).getName());
+                    }
+                }
             }
         });
 
