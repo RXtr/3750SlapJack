@@ -93,9 +93,10 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
-    public Card playerTurn()
+    public void playerTurn()
     {
         Player player = game.getPlayers().get(game.getSelectedPlayer());
+        player.placeCard(game.getCenterPile());
         HandFragment fa;
 
         if(game.getSelectedPlayer() == 0)
@@ -111,7 +112,6 @@ public class GameActivity extends AppCompatActivity {
 
         game.selectNextPlayer();
         highlightPlayer(game.getSelectedPlayer());
-        return player.placeCard(game.getCenterPile());
     }
 
     public void playerSlap(int slapIndex)

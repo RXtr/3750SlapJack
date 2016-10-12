@@ -19,9 +19,15 @@ public class Player extends GroupOfCards {
         this.cards = newhand.getGroup();
     }
 
+    /*
     public Card placeCard(GroupOfCards pile)
     {
         return this.giveCard(pile);
+    }
+    */
+    public void placeCard(GroupOfCards pile)
+    {
+        this.giveCard(pile);
     }
 
     public String getName(){ return name; }
