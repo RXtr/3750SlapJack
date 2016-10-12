@@ -160,8 +160,13 @@ public class SlapJackGame {
      */
     public void awardCards(Player slapWinner)
     {
-        for (Card c : centerPile.getGroup())
+        //for (Card c : centerPile.getGroup())
+        //    centerPile.giveCard(slapWinner);
+        int centerPileSize = centerPile.CardCount();
+        for (int i = 0; i < centerPileSize; i++)
+        {
             centerPile.giveCard(slapWinner);
+        }
     }
 
     /**

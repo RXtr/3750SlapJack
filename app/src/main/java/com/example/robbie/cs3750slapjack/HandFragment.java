@@ -38,6 +38,14 @@ public class HandFragment extends Fragment {
         icon = (ImageButton) view.findViewById(R.id.imageButton);
         icon.getBackground().setColorFilter(getRandomColor(), PorterDuff.Mode.SRC_ATOP);
 
+        /**
+         * When the icon is clicked, the following things will happen:
+         * Player who slapped will add itself to the slapper list,
+         * Game will determine after a while who slapped first,
+         * the first slapper will either be rewarded or penalized,
+         * any losers will be disabled,
+         * and game continues with next player.
+         */
         icon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,6 +79,9 @@ public class HandFragment extends Fragment {
         return Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
     }
 
+    /**
+     * Disables the player's displayed information.
+     */
     public void outOfGame()
     {
         icon.setEnabled(false);
@@ -81,6 +92,10 @@ public class HandFragment extends Fragment {
         icon.setImageDrawable(handDisabled);
     }
 
+    /**
+     * Sets the player's name.
+     * @param name
+     */
     public void setPlayerLabel(String name)
     {
         this.playerName.setText(name);

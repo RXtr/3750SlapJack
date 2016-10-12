@@ -1,6 +1,7 @@
 package com.example.robbie.cs3750slapjack;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -171,4 +172,17 @@ public class GameActivity extends AppCompatActivity {
     {
         //AnimationUtils.LoadAnimation(this, R.anim.scale_anim);
     }
+
+    /**
+     * Back button listener.
+     * Will close the application if the back button is pressed.
+     */
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
 }
