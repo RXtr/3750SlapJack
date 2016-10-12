@@ -10,7 +10,7 @@
         android:scaleType="fitXY"
         android:layout_width="160dp"
         android:layout_height="220dp"
-        app:srcCompat="@drawable/jack"
+        app:srcCompat="@drawable/card_template"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:id="@+id/cardPile" />

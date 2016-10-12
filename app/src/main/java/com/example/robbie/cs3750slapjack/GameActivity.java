@@ -111,6 +111,7 @@ public class GameActivity extends AppCompatActivity {
     public void playerSlap(int slapIndex)
     {
         HandFragment fa;
+        CenterFragment ca;
 
         if(game.getCenterPile().CardCount() == 0)
             return;
@@ -120,7 +121,10 @@ public class GameActivity extends AppCompatActivity {
 
         if(game.isAJack(game.getCenterPile().getBottomCard()) || game.isAPair())
         {
+            ca = (CenterFragment)getSupportFragmentManager().findFragmentByTag("pileFragment");
             game.awardCards(slapper);
+            ca.showBlank();
+
         }
         else
         {
