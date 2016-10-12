@@ -40,6 +40,11 @@ public class MenuFragment extends Fragment {
         Players = new ArrayList<>();
     }
 
+    public void onResume(){
+        super.onResume();
+        Players.clear();
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -109,6 +114,7 @@ public class MenuFragment extends Fragment {
 
                     MainActivity ma = (MainActivity) getActivity();
                     ma.startGame(Players);
+                    //Players.clear();
                 }
 
                 else if (rdo4Players.isChecked()) {
@@ -132,6 +138,7 @@ public class MenuFragment extends Fragment {
 
                     MainActivity ma = (MainActivity) getActivity();
                     ma.startGame(Players);
+                    //Players.clear();
                 }
                 else
                     Toast.makeText(getActivity(), "Select the number of players before playing.", Toast.LENGTH_SHORT).show();
@@ -142,7 +149,7 @@ public class MenuFragment extends Fragment {
         return menuView;
     }
 
-    public void removePlayers(){
+    /*public void removePlayers(){
         Players.removeAll(Players);
-    }
+    }*/
 }
