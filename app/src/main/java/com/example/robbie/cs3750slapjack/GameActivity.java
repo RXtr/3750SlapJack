@@ -120,7 +120,7 @@ public class GameActivity extends AppCompatActivity {
         Player slapper = game.getPlayers().get(slapIndex);
         game.setSlapper(slapper);
 
-        if(game.isAJack(game.getCenterPile().getBottomCard()) || game.isAPair())
+        if(game.isAJack(game.getCenterPile().getBottomCard()) || game.isAPair()) 
         {
             ca = (CenterFragment)getSupportFragmentManager().findFragmentByTag("pileFragment");
             game.awardCards(slapper);
