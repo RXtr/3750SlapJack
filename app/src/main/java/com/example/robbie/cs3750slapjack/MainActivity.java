@@ -10,12 +10,13 @@ import android.util.Log;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
+    MenuFragment startup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportFragmentManager().beginTransaction().add(R.id.activity_main,new MenuFragment(),"MF").commit();
+        startup = new MenuFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.activity_main,startup,"MF").commit();
     }
 
     /**
@@ -31,6 +32,11 @@ public class MainActivity extends AppCompatActivity {
         Bundle bundle = new Bundle();
         bundle.putBinder("object_value", new ObjectWrapperForBinder(objSent));
         startActivity(new Intent(this, GameActivity.class).putExtras(bundle));
+        restartSetUp();
         Log.d("does this work", "original object=" + objSent);
+    }
+
+    public void restartSetUp(){
+        startup.removePlayers();
     }
 }
