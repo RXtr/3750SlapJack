@@ -110,32 +110,51 @@ public class GameActivity extends AppCompatActivity {
 
     public void playerSlap(int slapIndex)
     {
+        HandFragment fa;
+
         if(game.getCenterPile().CardCount() == 0)
             return;
 
-        Player slappee = game.getPlayers().get(slapIndex);
-        game.setSlapper(slappee);
+        Player slapper = game.getPlayers().get(slapIndex);
+        game.setSlapper(slapper);
 
         if(game.isAJack(game.getCenterPile().getBottomCard()) || game.isAPair())
         {
-            game.awardCards(slappee);
+            game.awardCards(slapper);
         }
         else
         {
-            slappee.giveCardsMisslap(game.getPlayers());
-            if(slappee.CardCount() <= 0)
+            slapper.giveCardsMisslap(game.getPlayers());
+            if(slapper.CardCount() <= 0)
             {
-                game.addToLosers(slappee);
-                game.getPlayers().remove(slappee.getPlayerNumber());
-                disablePlayer(slappee);
+                game.addToLosers(slapper);
+                game.getPlayers().remove(slapper.getPlayerNumber());
+                disablePlayer(slapper);
                 if(game.getPlayers().size() == 1) {
 
                     Player winner = game.determineWinner();
 
                     //show winner
-
+                    //stop everything
                 }
             }
+        }
+        int playersLeft = game.getPlayers().size();
+
+        for(int i = 0; i < playersLeft; i++)
+        {
+            int playerIndex = game.getPlayers().get(i).getPlayerNumber();
+
+            if(playerIndex == 0)
+                fa = (HandFragment) getSupportFragmentManager().findFragmentByTag("playerOne");
+            else if(playerIndex == 1)
+                fa = (HandFragment) getSupportFragmentManager().findFragmentByTag("playerTwo");
+            else if(playerIndex == 2)
+                fa = (HandFragment) getSupportFragmentManager().findFragmentByTag("playerThree");
+            else
+                fa = (HandFragment) getSupportFragmentManager().findFragmentByTag("playerFour");
+
+            fa.setCardCountLabel(slapper.CardCount());
         }
     }
 
@@ -147,6 +166,5 @@ public class GameActivity extends AppCompatActivity {
     public void scalaAnimation()
     {
         //AnimationUtils.LoadAnimation(this, R.anim.scale_anim);
-
     }
 }

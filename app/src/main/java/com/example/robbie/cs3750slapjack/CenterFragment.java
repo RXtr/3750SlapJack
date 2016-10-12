@@ -103,10 +103,10 @@ public class CenterFragment extends Fragment {
         cardMap.put("ten_spades.png", R.drawable.ten_spades);
         cardMap.put("ten_diamonds.png", R.drawable.ten_diamonds);
 
-        cardMap.put("jack_clubs.png", R.drawable.jack_clubs);
-        cardMap.put("jack_hearts.png", R.drawable.jack_hearts);
-        cardMap.put("jack_spades.png", R.drawable.jack_spades);
-        cardMap.put("jack_diamonds.png", R.drawable.jack_diamonds);
+        cardMap.put("jack_clubs.png", R.drawable.jack);
+        cardMap.put("jack_hearts.png", R.drawable.jack);
+        cardMap.put("jack_spades.png", R.drawable.jack);
+        cardMap.put("jack_diamonds.png", R.drawable.jack);
 
         cardMap.put("queen_clubs.png", R.drawable.queen_clubs);
         cardMap.put("queen_hearts.png", R.drawable.queen_hearts);

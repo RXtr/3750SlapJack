@@ -19,10 +19,15 @@ import java.util.Random;
  */
 public class HandFragment extends Fragment {
 
-    ImageButton icon;
+    private ImageButton icon;
     private TextView cardCount;
     private TextView playerName;
     private int slapIndex;
+
+    public HandFragment() {
+
+        // Required empty public constructor
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,11 +47,6 @@ public class HandFragment extends Fragment {
         });
 
         return view;
-    }
-
-    public HandFragment() {
-
-        // Required empty public constructor
     }
 
     public void highlight()
