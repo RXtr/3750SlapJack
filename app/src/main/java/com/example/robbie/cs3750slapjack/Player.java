@@ -42,7 +42,7 @@ public class Player extends GroupOfCards {
     {
         for (Player p : players)
         {
-            this.giveCard(p.getHand());
+            this.giveCard(p);
         }
     }
 
