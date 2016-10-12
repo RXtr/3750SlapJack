@@ -243,7 +243,7 @@ public class SlapJackGame {
      */
     public boolean isAPair() {
         return (centerPile.getBottomCard().getValue()
-        .equals(centerPile.getGroup().get(centerPile.CardCount()-2)));
+        .equals(centerPile.getGroup().get(centerPile.CardCount()-2).getValue()));
     }
 
     public int getPlayerCount()
