@@ -50,6 +50,11 @@ public class CenterFragment extends Fragment {
         cardPile.setImageResource((int)cardMap.get(cardName));
     }
 
+    public void showBlank()
+    {
+        cardPile.setImageResource(R.drawable.card_template);
+    }
+
     public void buildMap()
     {
         cardMap = new HashMap<String,Integer>();
