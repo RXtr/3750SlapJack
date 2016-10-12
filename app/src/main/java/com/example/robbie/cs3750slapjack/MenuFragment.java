@@ -142,4 +142,7 @@ public class MenuFragment extends Fragment {
         return menuView;
     }
 
+    public void removePlayers(){
+        Players.removeAll(Players);
+    }
 }
